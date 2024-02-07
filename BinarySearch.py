@@ -86,6 +86,42 @@ class BSAlgo:
     #Helps print out the tree in a readable format. 
     #The inorder method print’s the values in the tree in the order of their keys.
 
+    def inorder(self, vals):
+        if self.left is not None:
+            self.left.inorder(vals)
+
+        if self.val is not None:
+            vals.append(self.val)
+
+        if self.right is not None:
+            self.right.inorder(vals)
+
+        return vals
+
+    def preorder(self, vals):
+        if self.val is not None:
+            vals.append(self.val)
+
+        if self.left is not None:
+            self.left.preorder(vals)
+
+        if self.right is not None:
+            self.right.preorder(vals)
+
+        return vals
+
+    def postorder(self, vals):
+        if self.left is not None:
+            self.left.postorder(vals)
+
+        if self.right is not None:
+            self.right.postorder(vals)
+
+        if self.val is not None:
+            vals.append(self.val)
+        return vals
+
+
 
 #call the functions
     
