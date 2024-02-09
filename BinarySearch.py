@@ -120,15 +120,55 @@ class BSAlgo:
         if self.val is not None:
             vals.append(self.val)
         return vals
+    
+    #function to check if a value exists returns true or false
+    
+    def exists(self, val):
+        if val == self.val:
+            return True
+
+        if val < self.val:
+            if self.left == None:
+                return False
+            return self.left.exists(val)
+
+        if self.right == None:
+            return False
+        return self.right.exists(val)
 
 
 
 #call the functions
     
 def main ():
-    nums = [11, 6, 8, 9, 21, 11, 3, 15, 14, 24, 18]
+    nums = [11, 6, 8, 9, 20, 4, 3, 15, 14, 24, 18]
     bst = BSAlgo()
     for num in nums:
         bst.insert(num)
-    
-    print(bst)
+    print("preorder:")
+    print(bst.preorder([]))
+    print("#")
+
+    print("postorder:")
+    print(bst.postorder([]))
+    print("#")
+
+    print("inorder:")
+    print(bst.inorder([]))
+    print("#")
+
+    nums = [2, 6, 20]
+    print("deleting " + str(nums))
+    for num in nums:
+        bst.delete(num)
+    print("#")
+
+    print("4 exists:")
+    print(bst.exists(4))
+    print("2 exists:")
+    print(bst.exists(2))
+    print("12 exists:")
+    print(bst.exists(12))
+    print("18 exists:")
+    print(bst.exists(18))
+
