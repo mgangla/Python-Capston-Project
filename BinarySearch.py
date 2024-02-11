@@ -145,30 +145,40 @@ def main ():
     bst = BSAlgo()
     for num in nums:
         bst.insert(num)
-    print("preorder:")
-    print(bst.preorder([]))
-    print("#")
+        print("preorder:")
+        print(bst.preorder())
+        print("#")
 
-    print("postorder:")
-    print(bst.postorder([]))
-    print("#")
+        print("postorder:")
+        print(bst.postorder())
+        print("#")
 
-    print("inorder:")
-    print(bst.inorder([]))
-    print("#")
+        print("inorder:")
+        print(bst.inorder())
+        print("#")
+
+        #to search for a key value
+
+    search_key = 24
+    search_result = bst.exists(search_key)
+
+    if search_result:
+        print(f"Key {search_key} found in the BST.")
+    else:
+        print(f"Key {search_key} not found in the BST.")
+
 
     nums = [2, 6, 20]
     print("deleting " + str(nums))
+
     for num in nums:
         bst.delete(num)
-    print("#")
+        print("#")
 
-    print("4 exists:")
-    print(bst.exists(4))
-    print("2 exists:")
-    print(bst.exists(2))
-    print("12 exists:")
-    print(bst.exists(12))
-    print("18 exists:")
-    print(bst.exists(18))
-
+        print(bst.exists(4))
+        print("2 exists:")
+        print(bst.exists(2))
+        print("12 exists:")
+        print(bst.exists(12))
+        print("18 exists:")
+        print(bst.exists(18))
